@@ -13,7 +13,7 @@ namespace Caelum.Leilao
 				if(lance.Valor > maiorDeTodos) {
 					maiorDeTodos = lance.Valor;
 				}
-				else if (lance.Valor < menorDeTodos) {
+				if (lance.Valor < menorDeTodos) {
 					menorDeTodos = lance.Valor;
 				}
 			}
