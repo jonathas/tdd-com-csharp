@@ -29,8 +29,8 @@ namespace Caelum.Leilao
 			double maiorEsperado = 400;
 			double menorEsperado = 250;
 
-			Assert.AreEqual(maiorEsperado, leiloeiro.MaiorLance);
-			Assert.AreEqual(menorEsperado, leiloeiro.MenorLance);
+			Assert.AreEqual(maiorEsperado, leiloeiro.MaiorLance, 0.00001);
+			Assert.AreEqual(menorEsperado, leiloeiro.MenorLance, 0.00001);
 		}
 	}
 }
