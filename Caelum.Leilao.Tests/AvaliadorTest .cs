@@ -1,13 +1,14 @@
 ﻿using System;
+using Caelum.Leilao;
 using NUnit.Framework;
 
 namespace Caelum.Leilao
 {
-	[TestFixture]
-	public class TesteDoAvaliador
-	{
+    [TestFixture]
+    public class AvaliadorTest
+    {
 		[Test]
-		public void Main() 
+		public void DeveEntenderLancesEmOrdemCrescente() 
 		{
 			// 1ª parte: cenario
 			Usuario joao = new Usuario ("Joao");
