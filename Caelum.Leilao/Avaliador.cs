@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Caelum.Leilao
 {
@@ -6,9 +7,12 @@ namespace Caelum.Leilao
 	{
 		private double maiorDeTodos = Double.MinValue;
 		private double menorDeTodos = Double.MaxValue;
+        private double media = Double.MinValue;
 
 		public void Avalia(Leilao leilao) 
 		{
+            media = Math.Round((from l in leilao.Lances select l.Valor).Average());
+
 			foreach(var lance in leilao.Lances) {
 				if(lance.Valor > maiorDeTodos) {
 					maiorDeTodos = lance.Valor;
@@ -26,6 +30,11 @@ namespace Caelum.Leilao
 		public double MenorLance {
 			get { return menorDeTodos; }
 		}
+
+        public double Media
+        {
+            get { return media; }
+        }
 
 	}
 }
