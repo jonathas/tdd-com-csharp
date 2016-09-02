@@ -13,6 +13,11 @@ namespace Caelum.Leilao
 
 		public void Avalia(Leilao leilao) 
 		{
+            if(leilao.Lances.Count == 0)
+            {
+                throw new Exception("Nao eh possivel avaliar um leilao sem lances");
+            }
+
             media = Math.Round((from l in leilao.Lances select l.Valor).Average());
 
 			foreach(var lance in leilao.Lances) {

@@ -107,6 +107,18 @@ namespace Caelum.Leilao
             Assert.AreEqual(300, maiores[1].Valor, 0.0001);
             Assert.AreEqual(200, maiores[2].Valor, 0.0001);
         }
+
+        [Test]
+        // ExpectedException removed from NUnit 3.0
+        // https://stackoverflow.com/questions/33895457/expectedexception-in-nunit-gave-me-an-error
+        public void NaoDeveAvaliarLeiloesSemNenhumLanceDado()
+        {
+            Leilao leilao = new CriadorDeLeilao().Para("Playstation").Constroi();
+
+            // Now using Assert.That instead
+            Assert.That(() => leiloeiro.Avalia(leilao), Throws.TypeOf<Exception>());
+        }
+
 	}
 }
 
