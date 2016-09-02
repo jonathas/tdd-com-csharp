@@ -13,13 +13,31 @@ namespace Caelum.Leilao
         private Usuario jose;
         private Usuario maria;
 
+        [OneTimeSetUp]
+        public void TestandoBeforeClass()
+        {
+            Console.WriteLine("test fixture setup");
+        }
+
+        [OneTimeTearDown]
+        public void TestandoAfterClass()
+        {
+            Console.WriteLine("test fixture tear down");
+        }
+
         [SetUp]
-        public void CriaAvaliador()
+        public void SetUp()
         {
             this.leiloeiro = new Avaliador();
             this.joao = new Usuario("Joao");
             this.jose = new Usuario("Jose");
             this.maria = new Usuario("Maria");
+        }
+
+        [TearDown]
+        public void Finaliza()
+        {
+            Console.WriteLine("fim");
         }
 
         [Test]
