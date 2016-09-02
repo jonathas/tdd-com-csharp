@@ -7,20 +7,24 @@ namespace Caelum.Leilao
     [TestFixture]
     class PalindromoTest
     {
+        private Palindromo palindromo;
+
+        [SetUp]
+        public void SetUp()
+        {
+            palindromo = new Palindromo();
+        }
+
         [Test]
         public void DeveIdentificarPalindromo()
         {
-            Palindromo palindromo = new Palindromo();
-            bool res = palindromo.EhPalindromo("Socorram-me subi no onibus em Marrocos");
-            Assert.IsTrue(res);
+            Assert.IsTrue(palindromo.EhPalindromo("Socorram-me subi no onibus em Marrocos"));
         }
 
         [Test]
         public void DeveIdentificarSeNaoEhPalindromo()
         {
-            Palindromo palindromo = new Palindromo();
-            bool res = palindromo.EhPalindromo("E preciso amar as pessoas como se nao houvesse amanha");
-            Assert.IsFalse(res);
+            Assert.IsFalse(palindromo.EhPalindromo("E preciso amar as pessoas como se nao houvesse amanha"));
         }
     }
 }
